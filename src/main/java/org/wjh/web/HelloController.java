@@ -23,11 +23,7 @@ public class HelloController {
     @RequestMapping("/wjh/hello.do")
     public Object hello() {
         String key = UUID.randomUUID().toString().replace("-", "");
-        StringBuffer obj = new StringBuffer(key);
-        for(int i=0; i<10000000; i++) {
-            obj.append(key);
-        }
-        memcachedClient.set(key, 7200, obj);
+        memcachedClient.set(key, 7200, key);
         String value = (String)memcachedClient.get(key);
         return value;
     }
