@@ -5,17 +5,17 @@
     <!-- 控制台日志 -->
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%l]  %m%n" />
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%-4L]  %m%n" />
         </layout>
     </appender>
     <!-- 默认日志 -->
     <appender name="DailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="threshold" value="info" />
-        <param name="file" value="/home/wangjihui/data/logs/spmvc/spmvc.log" />
+        <param name="file" value="/home/wangjihui/data/logs/memcached/memcached.log" />
         <param name="append" value="true" />
         <param name="datePattern" value="'.'yyyy-MM-dd" />
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%l]  %m%n" />
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%-4L]  %m%n" />
         </layout>
     </appender>
     <root>
