@@ -19,9 +19,9 @@
         <!-- 以毫秒为单位设置默认的操作超时时间 -->
         <property name="opTimeout" value="1000" />
         <property name="timeoutExceptionThreshold" value="1998" />
-        <!-- 设置定位器类型(ARRAY_MOD,CONSISTENT),默认是ARRAY_MOD -->
+        <!-- 设置定位器类型(ARRAY_MOD,CONSISTENT,VBUCKET),默认是ARRAY_MOD -->
         <property name="locatorType" value="CONSISTENT" />
-        <!-- 设置故障模式(取消，重新分配，重试)，默认是重新分配 -->
+        <!-- 设置故障模式(取消Cancel，重新分配Redistribute，重试Retry)，默认是重新分配 -->
         <property name="failureMode" value="Redistribute" />
         <!-- 想使用Nagle算法，设置为true -->
         <property name="useNagleAlgorithm" value="false" />
@@ -33,7 +33,7 @@
         </property>
         <!-- 设置哈希算法 -->
         <property name="hashAlg">
-            <bean id="KETAMA_HASH" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+            <bean class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
                 <property name="staticField" value="net.spy.memcached.DefaultHashAlgorithm.KETAMA_HASH" />
             </bean>
         </property>
