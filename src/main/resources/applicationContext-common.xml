@@ -31,9 +31,10 @@
                 <property name="compressionThreshold" value="1024" />
             </bean>
         </property>
-        <!-- 设置哈希算法 -->
+        <!-- 设置哈希算法:枚举类型要想注入到类中，一定要先使用org.springframework.beans.factory.config.FieldRetrievingFactoryBean类
+            将枚举类型进行转换, 将DefaultHashAlgorithm.KETAMA_HASH转换为KETAMA_HASH这个bean， 然后在要注入的bean中使用ref="KETAMA_HASH" 引用即可。-->
         <property name="hashAlg">
-            <bean class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+            <bean id="KETAMA_HASH" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
                 <property name="staticField" value="net.spy.memcached.DefaultHashAlgorithm.KETAMA_HASH" />
             </bean>
         </property>
